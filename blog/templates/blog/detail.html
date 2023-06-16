@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block heading %}
+    {{heading}}
+{% endblock heading %}
+    
+
+{% block pagetittle %}
+    <h2>{{heading}}</h2>
+{% endblock pagetittle %}
+    
+
+{% block contents %}
+    <h4>{{details.judul}}</h4>
+    <p>{{details.kategori}} | {{details.publish}}</p>
+    <p>{{details.isi}}</p>
+{% endblock contents %}
+    

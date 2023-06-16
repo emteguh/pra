@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block heading %}
+    {{heading}}
+{% endblock heading %}
+    
+
+{% block pagetittle %}
+    <h1>{{heading}}</h1>
+{% endblock pagetittle %}
+
+
+
+{% block contents %}
+<br>
+    <ul class="nav navbar-dark bg-dark"> 
+        <li class="nav-item">
+            <a href="/blog/" class="nav-link">All post</a>
+        </li> 
+        {% for dataKategori in allkategori  %}
+            <li class="nav-item">
+                <a href="{% url 'blog:kategori' dataKategori.kategori %}" class="nav-link">{{dataKategori.kategori}}</a>
+            </li> 
+        {% endfor %}         
+    </ul>
+    <br>
+    {% for artikel in artikels  %}
+        <h2>{{artikel.judul}}</h2>
+        <p>{{artikel.kategori}} | {{artikel.publish}}</p>
+        <p>{{artikel.isi|truncatechars:100}}<a href="{% url 'blog:detail' artikel.slug %}">Selengkapnya</a></p>
+    {% endfor %}
+        
+{% endblock contents %}
+  
+
+    
